@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Book } from '../models/book.model';
 import { OnInit } from '@angular/core';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-book',
@@ -13,18 +14,25 @@ export class BookComponent implements OnInit{
   books: Book[] = [];
 
   ngOnInit(): void {
-      
+    let savedBooks = localStorage.getItem("books")
+    this.books = savedBooks ? JSON.parse(savedBooks) : []
   }
 
   addBook() {
-    //if(this.bookTitle.trim().length && this.bookAuthor.trim.length)
-    let newBook: Book = {
-      id : Date.now(),
-      title: this.bookTitle,
-      author: this.bookAuthor
-    }
+    if(this.bookTitle.trim().length && this.bookAuthor.trim().length){
+      let newBook: Book = {
+        id : Date.now(),
+        title: this.bookTitle,
+        author: this.bookAuthor
+      }
 
-    this.books.push(newBook)
+      this.books.push(newBook)
+      console.log(newBook);
+      
+      this.bookTitle = "";
+      this.bookAuthor = "";
+      localStorage.setItem("books", JSON.stringify(this.books))
+    }
   }
 
 }

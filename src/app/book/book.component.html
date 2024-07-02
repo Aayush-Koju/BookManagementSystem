@@ -1,9 +1,9 @@
-<form>
+<div>
     <label for="title">Title:</label>
     <input [(ngModel)] = "bookTitle" placeholder="book">
     <label for="author">Author:</label>
-    <input [(ngModel)] = "bookTitle" placeholder="leo">
+    <input [(ngModel)] = "bookAuthor" placeholder="leo">
 
-    <button>Add Books</button>
-</form>
+    <button (click)="addBook()">Add Book</button>
+</div>
 <!--[(ngModel)]="newBookTitle"-->
