@@ -27,12 +27,16 @@ export class BookComponent implements OnInit{
       }
 
       this.books.push(newBook)
-      console.log(newBook);
       
       this.bookTitle = "";
       this.bookAuthor = "";
       localStorage.setItem("books", JSON.stringify(this.books))
     }
+  }
+
+  deleteBook(index: number) {
+    this.books.splice(index, 1)
+    localStorage.setItem("books", JSON.stringify(this.books))
   }
 
 }
