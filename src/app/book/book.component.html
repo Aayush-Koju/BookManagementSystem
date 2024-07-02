@@ -6,4 +6,22 @@
 
     <button (click)="addBook()">Add Book</button>
 </div>
-<!--[(ngModel)]="newBookTitle"-->
+
+<table>
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Author</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books; index as i">
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>
+                <button (click)="deleteBook(i)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
