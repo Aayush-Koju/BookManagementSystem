@@ -1,10 +1,10 @@
-<div>
-    <label for="title">Title:</label>
-    <input [(ngModel)] = "bookTitle" placeholder="book">
+<div class="mb-3">
+    <label class="col-auto" for="title">Title:</label>
+    <input class="col-auto" [(ngModel)] = "bookTitle" placeholder="book">
     <label for="author">Author:</label>
     <input [(ngModel)] = "bookAuthor" placeholder="leo">
 
-    <button (click)="addBook()">Add Book</button>
+    <button class="btn btn-primary" (click)="addBook()">Add Book</button>
 </div>
 
 <table>
@@ -20,7 +20,7 @@
             <td>{{book.title}}</td>
             <td>{{book.author}}</td>
             <td>
-                <button (click)="deleteBook(i)">Delete</button>
+                <button class="btn btn-danger" (click)="deleteBook(i)">Delete</button>
             </td>
         </tr>
     </tbody>
