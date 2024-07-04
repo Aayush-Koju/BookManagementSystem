@@ -1,27 +1,38 @@
-<div class="mb-3">
-    <label class="" for="title">Title:</label>
-    <input class="" [(ngModel)] = "bookTitle" placeholder="book">
-    <label class="" for="author">Author:</label>
-    <input [(ngModel)] = "bookAuthor" placeholder="leo">
-
-    <button class="btn btn-primary" (click)="addBook()">Add Book</button>
+<div class="container">
+    <div class="mt-3">
+        <div class="row mb-3 col-auto">
+            <label class="col-sm-2 col-form-label" for="title">Title:</label>
+            <div class="col-auto">
+                <input class="form-control" [(ngModel)] = "bookTitle" placeholder="Book Title">
+            </div>
+        </div>
+        <div class="row mb-3 col-auto">
+            <label class="col-sm-2 col-form-label" for="author">Author:</label>
+            <div class="col-auto">
+            <input class="form-control" [(ngModel)] = "bookAuthor" placeholder="Book Author">
+        </div>
+        <div class="row mt-3">
+            <label class="col-sm-2 col-form-label"></label> <!--added to align-->
+            <button class="btn btn-primary col-auto" (click)="addBook()">Add Book</button>
+        </div>
+    </div>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Title</td>
+                <td>Author</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books; index as i">
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteBook(i)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <td>Title</td>
-            <td>Author</td>
-            <td>Action</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let book of books; index as i">
-            <td>{{book.title}}</td>
-            <td>{{book.author}}</td>
-            <td>
-                <button class="btn btn-danger" (click)="deleteBook(i)">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
